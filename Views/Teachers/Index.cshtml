@@ -1,0 +1,46 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.Teacher>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    .table-container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+</style>
+
+<h1 class="text-center mb-4">Index</h1>
+
+<div class="container mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <a asp-action="Create" class="btn btn-primary">Create New</a>
+        </div>
+    </div>
+</div>
+
+<div class="table-container">
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
